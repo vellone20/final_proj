@@ -107,8 +107,9 @@ class AdditionPage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Center(
-              child: Text("Please Choose a Difficulty", style:TextStyle(
-                  fontSize: 50, fontWeight: FontWeight.bold)
+              child: Text("Please Choose a Difficulty",
+                  style:TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center
               ),
             ),
             Container(
@@ -166,8 +167,9 @@ class SubtractionPage extends StatelessWidget {
         child: Column(
             children: <Widget>[
               Center(
-                child: Text("Please Choose a Difficulty", style:TextStyle(
-                    fontSize: 50, fontWeight: FontWeight.bold)
+                child: Text("Please Choose a Difficulty",
+                    style:TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center
                 ),
               ),
               Container(
@@ -225,8 +227,9 @@ class MultiplicationPage extends StatelessWidget {
         child: Column(
             children: <Widget>[
               Center(
-                child: Text("Please Choose a Difficulty", style:TextStyle(
-                    fontSize: 50, fontWeight: FontWeight.bold)
+                child: Text("Please Choose a Difficulty",
+                    style:TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center
                 ),
               ),
               Container(
@@ -284,8 +287,9 @@ class DivisionPage extends StatelessWidget {
         child: Column(
             children: <Widget>[
               Center(
-                child: Text("Please Choose a Difficulty", style:TextStyle(
-                    fontSize: 50, fontWeight: FontWeight.bold)
+                child: Text("Please Choose a Difficulty",
+                    style:TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center
                 ),
               ),
               Container(
@@ -340,14 +344,61 @@ class ScoreboardPage extends StatelessWidget {
         backgroundColor: Colors.purpleAccent,
       ),
       body: Container(
-        child: RaisedButton(
-          color: Colors.yellow,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
+        child: Column(
+            children: <Widget>[
+              Center(
+                child: Text("Different Scoreboards",
+                  style:TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(40),
+                child: RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {Navigator.push (context,
+                        MaterialPageRoute(builder: (context) => AddScore())
+                    );
+                    },
+                    child: Text("Addition Scoreboard")
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(40),
+                child: RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {Navigator.push (context,
+                        MaterialPageRoute(builder: (context) => SubtractScore())
+                    );
+                    },
+                    child: Text("Subtreaction Scoreboard")
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(40),
+                child: RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {Navigator.push (context,
+                        MaterialPageRoute(builder: (context) => MultiScore())
+                    );
+                    },
+                    child: Text("Division Scoreboard")
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(40),
+                child: RaisedButton(
+                    color: Colors.deepPurpleAccent,
+                    onPressed: () {Navigator.push (context,
+                        MaterialPageRoute(builder: (context) => DivideScore())
+                    );
+                    },
+                    child: Text("Mutliplication Scoreboard")
+                ),
+              ),
+
+            ]
         ),
-        alignment: Alignment.bottomRight,
       ),
     );
   }
@@ -427,7 +478,10 @@ class AddHard extends StatelessWidget {
   int userInput2;
   int userInput3;
   //value1 = random.nextInt(9);
-  //int ans1 = value1 + userInput;
+  //int userAns1 = value1 + userInput;
+  //int correctAns1 = value1 + userInput;
+  //if (userAns1 == correctAns1) {points++} else points+= 0
+  //append points to list
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -725,6 +779,104 @@ class DivideHard extends StatelessWidget {
       backgroundColor: Colors.tealAccent,
       appBar: AppBar(
         title: Text ('HARD DIVISION'),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Container(
+        child: RaisedButton(
+          color: Colors.yellow,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+        alignment: Alignment.bottomRight,
+      ),
+    );
+  }
+}
+
+////////////////////////////Different Scoreboards///////////////////////////////
+
+class AddScore extends StatelessWidget {
+  // show for all difficulties
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.tealAccent,
+      appBar: AppBar(
+        title: Text ('Addition Scores'),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Container(
+        child: RaisedButton(
+          color: Colors.yellow,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+        alignment: Alignment.bottomRight,
+      ),
+    );
+  }
+}
+
+class SubtractScore extends StatelessWidget {
+  // show for all difficulties
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.tealAccent,
+      appBar: AppBar(
+        title: Text ('Subtraction Scores'),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Container(
+        child: RaisedButton(
+          color: Colors.yellow,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+        alignment: Alignment.bottomRight,
+      ),
+    );
+  }
+}
+
+class MultiScore extends StatelessWidget {
+  // show for all difficulties
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.tealAccent,
+      appBar: AppBar(
+        title: Text ('Mutliplication Scores'),
+        backgroundColor: Colors.purpleAccent,
+      ),
+      body: Container(
+        child: RaisedButton(
+          color: Colors.yellow,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+        alignment: Alignment.bottomRight,
+      ),
+    );
+  }
+}
+
+class DivideScore extends StatelessWidget {
+  // show for all difficulties
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.tealAccent,
+      appBar: AppBar(
+        title: Text ('Division Scores'),
         backgroundColor: Colors.purpleAccent,
       ),
       body: Container(
