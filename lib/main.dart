@@ -420,11 +420,11 @@ class AddEasyWidget extends StatefulWidget {
 
 class _AddEasyWidgetState extends State <AddEasyWidget> {
   final Controller1 = TextEditingController();
-  String userInput1 = '';
+  String userInput1 = '?';
   final Controller2 = TextEditingController();
-  String userInput2 = '';
+  String userInput2 = '?';
   final Controller3 = TextEditingController();
-  String userInput3 = '';
+  String userInput3 = '?';
   Random random = new Random();
   int value1 = 0;
   int value2 = 0;
@@ -467,9 +467,9 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
                   });
                 }
               }, child: Text("Generate Numbers")),
-              Text("1. $value1 + $value4 = ?", style: TextStyle(fontSize: 30)),
-              Text("2. $value2 + $value5 = ?", style: TextStyle(fontSize: 30)),
-              Text("3. $value3 + $value6 = ?", style: TextStyle(fontSize: 30)),
+              Text("1. $value1 + $value4 = $userInput1", style: TextStyle(fontSize: 30)),
+              Text("2. $value2 + $value5 = $userInput2", style: TextStyle(fontSize: 30)),
+              Text("3. $value3 + $value6 = $userInput3", style: TextStyle(fontSize: 30)),
               Text(""),
               TextFormField(
                 controller: Controller1,
@@ -504,7 +504,7 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 3 Answer')
               ),
-
+              Text(""),
               RaisedButton(onPressed: () {
                 if(firstPressB2) {
                   firstPressB2 = false;
