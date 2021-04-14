@@ -419,7 +419,6 @@ class AddEasyWidget extends StatefulWidget {
 }
 
 class _AddEasyWidgetState extends State <AddEasyWidget> {
-  //final userInput1 = TextEditingController();
   final Controller1 = TextEditingController();
   String userInput1 = '';
   final Controller2 = TextEditingController();
@@ -437,6 +436,9 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var firstPressB1 = true ;
+  var firstPressB2 = true ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -450,17 +452,20 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
           child: Column(
             children: [
               RaisedButton(onPressed: () {
-                setState(() {
-                  value1 = random.nextInt(6);
-                  value2 = random.nextInt(6);
-                  value3 = random.nextInt(6);
-                  value4 = random.nextInt(6);
-                  value5 = random.nextInt(6);
-                  value6 = random.nextInt(6);
-                  ans1 = (value1 + value4).toString();
-                  ans2 = (value2 + value5).toString();
-                  ans3 = (value3 + value6).toString();
-                });
+                if(firstPressB1) {
+                  firstPressB1 = false;
+                  setState(() {
+                    value1 = random.nextInt(6);
+                    value2 = random.nextInt(6);
+                    value3 = random.nextInt(6);
+                    value4 = random.nextInt(6);
+                    value5 = random.nextInt(6);
+                    value6 = random.nextInt(6);
+                    ans1 = (value1 + value4).toString();
+                    ans2 = (value2 + value5).toString();
+                    ans3 = (value3 + value6).toString();
+                  });
+                }
               }, child: Text("Generate Numbers")),
               Text("1. $value1 + $value4 = ?", style: TextStyle(fontSize: 30)),
               Text("2. $value2 + $value5 = ?", style: TextStyle(fontSize: 30)),
@@ -501,37 +506,33 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
               ),
 
               RaisedButton(onPressed: () {
-                setState(() {
-                  if (userInput1 == ans1) {
-                    points++;
-                    if (userInput2 == ans2) {
+                if(firstPressB2) {
+                  firstPressB2 = false;
+                  setState(() {
+                    if (userInput1 == ans1) {
+                      points++;
+                      if (userInput2 == ans2) {
+                        points++;
+                        if (userInput3 == ans3) {
+                          points++;
+                        }
+                      } else if (userInput3 == ans3) {
+                        points++;
+                      }
+                    }
+                    else if (userInput2 == ans2) {
                       points++;
                       if (userInput3 == ans3) {
                         points++;
                       }
-                    } else if (userInput3 == ans3) {
+                    }
+                    else if (userInput3 == ans3) {
                       points++;
                     }
-                  }
-                  else if (userInput2 == ans2) {
-                    points++;
-                    if (userInput3 == ans3) {
-                      points++;
-                    }
-                  }
-                  else if (userInput3 == ans3) {
-                    points++;
-                  }
-                });
-                // print("$userInput1");
-                // print("$userInput2");
-                // print("$userInput3");
-                // print("$ans1");
-                // print("$ans2");
-                // print("$ans3");
-                //print ("Point: $points");
+                  });
+                }
               }, child: Text("Check Answers")),
-              Text("Points = $points", style:TextStyle(fontSize: 30)),
+              Text("Correct Answers = $points", style:TextStyle(fontSize: 30)),
             ],
           )
       ),
