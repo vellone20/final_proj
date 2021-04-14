@@ -419,9 +419,13 @@ class AddEasyWidget extends StatefulWidget {
 }
 
 class _AddEasyWidgetState extends State <AddEasyWidget> {
-  final userInput1 = TextEditingController();
-  final userInput2 = TextEditingController();
-  final userInput3 = TextEditingController();
+  //final userInput1 = TextEditingController();
+  final Controller1 = TextEditingController();
+  String userInput1 = '';
+  final Controller2 = TextEditingController();
+  String userInput2 = '';
+  final Controller3 = TextEditingController();
+  String userInput3 = '';
   Random random = new Random();
   int value1 = 0;
   int value2 = 0;
@@ -433,17 +437,6 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is disposed.
-    userInput1.dispose();
-    super.dispose();
-    userInput2.dispose();
-    super.dispose();
-    userInput3.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -473,25 +466,40 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
               Text("2. $value2 + $value5 = ?", style: TextStyle(fontSize: 30)),
               Text("3. $value3 + $value6 = ?", style: TextStyle(fontSize: 30)),
               Text(""),
-              TextField(
-                controller: userInput1,
+              TextFormField(
+                controller: Controller1,
+                onChanged: (value){
+                  setState(() {
+                    userInput1 = value;
+                  });
+                },
                 decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Question 1 Answer')
+                    border: OutlineInputBorder(),
+                    labelText: 'Question 1 Answer')
               ),
-              TextField(
-                controller: userInput2,
+              TextFormField(
+                  controller: Controller2,
+                  onChanged: (value){
+                    setState(() {
+                      userInput2 = value;
+                    });
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Question 2 Answer')
               ),
-              TextField(
-                controller: userInput3,
+              TextFormField(
+                  controller: Controller3,
+                  onChanged: (value){
+                    setState(() {
+                      userInput3 = value;
+                    });
+                  },
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
                       labelText: 'Question 3 Answer')
               ),
-              Text("$points", style:TextStyle(fontSize: 30)),
+
               RaisedButton(onPressed: () {
                 setState(() {
                   if (userInput1 == ans1) {
@@ -515,14 +523,15 @@ class _AddEasyWidgetState extends State <AddEasyWidget> {
                     points++;
                   }
                 });
-                print("$userInput1");
-                print("$userInput2");
-                print("$userInput3");
-                print("$ans1");
-                print("$ans2");
-                print("$ans3");
-                print ("Point: $points");
+                // print("$userInput1");
+                // print("$userInput2");
+                // print("$userInput3");
+                // print("$ans1");
+                // print("$ans2");
+                // print("$ans3");
+                //print ("Point: $points");
               }, child: Text("Check Answers")),
+              Text("Points = $points", style:TextStyle(fontSize: 30)),
             ],
           )
       ),
