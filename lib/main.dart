@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -405,33 +404,127 @@ class ScoreboardPage extends StatelessWidget {
 }
 
 ////////////////////////////Addition Difficulties///////////////////////////////
+class AddEasy extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(child:AddEasyWidget()),
+    );
+  }
+}
 
-class AddEasy extends StatelessWidget {
-  static const AddEasyScoreList = [];
+class AddEasyWidget extends StatefulWidget {
+  @override
+  _AddEasyWidgetState createState() => _AddEasyWidgetState();
+}
+
+class _AddEasyWidgetState extends State <AddEasyWidget> {
+  final userInput1 = TextEditingController();
+  final userInput2 = TextEditingController();
+  final userInput3 = TextEditingController();
   Random random = new Random();
   int value1 = 0;
   int value2 = 0;
   int value3 = 0;
-  int userInput1;
-  int userInput2;
-  int userInput3;
+  int value4 = 0;
+  int value5 = 0;
+  int value6 = 0;
+  int points = 0;
+  String ans1 = '';
+  String ans2 = '';
+  String ans3 = '';
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is disposed.
+    userInput1.dispose();
+    super.dispose();
+    userInput2.dispose();
+    super.dispose();
+    userInput3.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.tealAccent,
       appBar: AppBar(
-        title: Text ('EASY ADDITION'),
+        title: Text('EASY ADDITION'),
         backgroundColor: Colors.purpleAccent,
       ),
-      body: Container(
-        child: RaisedButton(
-          color: Colors.yellow,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-        alignment: Alignment.bottomRight,
+      body: Center(
+          child: Column(
+            children: [
+              RaisedButton(onPressed: () {
+                setState(() {
+                  value1 = random.nextInt(6);
+                  value2 = random.nextInt(6);
+                  value3 = random.nextInt(6);
+                  value4 = random.nextInt(6);
+                  value5 = random.nextInt(6);
+                  value6 = random.nextInt(6);
+                  ans1 = (value1 + value4).toString();
+                  ans2 = (value2 + value5).toString();
+                  ans3 = (value3 + value6).toString();
+                });
+              }, child: Text("Generate Numbers")),
+              Text("1. $value1 + $value4 = ?", style: TextStyle(fontSize: 30)),
+              Text("2. $value2 + $value5 = ?", style: TextStyle(fontSize: 30)),
+              Text("3. $value3 + $value6 = ?", style: TextStyle(fontSize: 30)),
+              Text(""),
+              TextField(
+                controller: userInput1,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Question 1 Answer')
+              ),
+              TextField(
+                controller: userInput2,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Question 2 Answer')
+              ),
+              TextField(
+                controller: userInput3,
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Question 3 Answer')
+              ),
+              Text("$points", style:TextStyle(fontSize: 30)),
+              RaisedButton(onPressed: () {
+                setState(() {
+                  if (userInput1 == ans1) {
+                    points++;
+                    if (userInput2 == ans2) {
+                      points++;
+                      if (userInput3 == ans3) {
+                        points++;
+                      }
+                    } else if (userInput3 == ans3) {
+                      points++;
+                    }
+                  }
+                  else if (userInput2 == ans2) {
+                    points++;
+                    if (userInput3 == ans3) {
+                      points++;
+                    }
+                  }
+                  else if (userInput3 == ans3) {
+                    points++;
+                  }
+                });
+                print("$userInput1");
+                print("$userInput2");
+                print("$userInput3");
+                print("$ans1");
+                print("$ans2");
+                print("$ans3");
+                print ("Point: $points");
+              }, child: Text("Check Answers")),
+            ],
+          )
       ),
     );
   }
