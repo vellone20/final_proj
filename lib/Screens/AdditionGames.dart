@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter/services.dart';
+
 class AdditionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -203,7 +205,7 @@ class AddEasyWidget extends StatefulWidget {
 }
 
 class _AddEasyWidgetState extends State<AddEasyWidget> {
-  //static const AddEasyScoreList = [];
+  static const AddEasyScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -221,6 +223,9 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -239,6 +244,8 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(6);
@@ -262,6 +269,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -272,6 +280,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -282,6 +291,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -295,6 +305,8 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -319,7 +331,8 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                 }
               },
               child: Text("Check Answers")),
-          Text("Correct Answers = $points", style: TextStyle(fontSize: 30))
+          Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -341,7 +354,7 @@ class AddMediumWidget extends StatefulWidget {
 }
 
 class _AddMediumWidgetState extends State<AddMediumWidget> {
-  //static const AddMediumScoreList = [];
+  static const AddMediumScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -359,6 +372,9 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -377,6 +393,8 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(6 + 6) - 6;
@@ -400,6 +418,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -410,6 +429,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -420,6 +440,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -433,6 +454,8 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -458,6 +481,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -479,7 +503,7 @@ class AddHardWidget extends StatefulWidget {
 }
 
 class _AddHardWidgetState extends State<AddHardWidget> {
-  //static const AddHardScoreList = [];
+  static const AddHardScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -497,6 +521,9 @@ class _AddHardWidgetState extends State<AddHardWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -515,6 +542,8 @@ class _AddHardWidgetState extends State<AddHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(100 + 100) - 100;
@@ -538,6 +567,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -548,6 +578,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -558,6 +589,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -571,6 +603,8 @@ class _AddHardWidgetState extends State<AddHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -596,6 +630,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );

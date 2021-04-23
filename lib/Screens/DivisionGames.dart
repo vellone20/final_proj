@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter/services.dart';
+
 class DivisionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -220,6 +222,9 @@ class _DivideEasyState extends State<DivideEasyWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -238,6 +243,8 @@ class _DivideEasyState extends State<DivideEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(10) * 2;
@@ -258,6 +265,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -268,6 +276,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -278,6 +287,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -291,6 +301,8 @@ class _DivideEasyState extends State<DivideEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 + '.0' == ans1) {
@@ -316,6 +328,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -355,6 +368,9 @@ class _DivideMediumState extends State<DivideMediumWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -373,6 +389,8 @@ class _DivideMediumState extends State<DivideMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(6 + 6) * 2 - 12;
@@ -402,6 +420,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -412,6 +431,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -422,6 +442,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -435,6 +456,8 @@ class _DivideMediumState extends State<DivideMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 + '.0' == ans1) {
@@ -460,6 +483,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -499,6 +523,9 @@ class _DivideHardState extends State<DivideHardWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -517,7 +544,9 @@ class _DivideHardState extends State<DivideHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
-                  //firstPressB1 = false;
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
+                  firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(20 + 20) * 2 - 40;
                     value2 = random.nextInt(20 + 20) * 2 - 40;
@@ -546,6 +575,7 @@ class _DivideHardState extends State<DivideHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -556,6 +586,7 @@ class _DivideHardState extends State<DivideHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -566,6 +597,7 @@ class _DivideHardState extends State<DivideHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -579,6 +611,8 @@ class _DivideHardState extends State<DivideHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 + '.0' == ans1) {
@@ -610,6 +644,7 @@ class _DivideHardState extends State<DivideHardWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter/services.dart';
+
 class MultiplicationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -218,6 +220,9 @@ class _MultiEasyState extends State<MultiEasyWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -236,6 +241,8 @@ class _MultiEasyState extends State<MultiEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(6);
@@ -259,6 +266,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -269,6 +277,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -279,6 +288,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -292,6 +302,8 @@ class _MultiEasyState extends State<MultiEasyWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -317,6 +329,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -356,6 +369,9 @@ class _MultiMediumState extends State<MultiMediumWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -374,6 +390,8 @@ class _MultiMediumState extends State<MultiMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(6 + 6) - 6;
@@ -397,6 +415,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -407,6 +426,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -417,6 +437,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -430,6 +451,8 @@ class _MultiMediumState extends State<MultiMediumWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -455,6 +478,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
@@ -494,6 +518,9 @@ class _MultiHardState extends State<MultiHardWidget> {
   String ans1 = '';
   String ans2 = '';
   String ans3 = '';
+  var d1;
+  var d2;
+  var finTime;
   var firstPressB1 = true;
 
   var firstPressB2 = true;
@@ -512,6 +539,8 @@ class _MultiHardState extends State<MultiHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB1) {
+                  d1 = DateTime.now();
+                  firstPressB2 = true;
                   firstPressB1 = false;
                   setState(() {
                     value1 = random.nextInt(100 + 100) - 100;
@@ -535,6 +564,7 @@ class _MultiHardState extends State<MultiHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -545,6 +575,7 @@ class _MultiHardState extends State<MultiHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -555,6 +586,7 @@ class _MultiHardState extends State<MultiHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -568,6 +600,8 @@ class _MultiHardState extends State<MultiHardWidget> {
           RaisedButton(
               onPressed: () {
                 if (firstPressB2) {
+                  d2 = DateTime.now();
+                  finTime = d2.difference(d1);
                   firstPressB2 = false;
                   setState(() {
                     if (userInput1 == ans1) {
@@ -593,6 +627,7 @@ class _MultiHardState extends State<MultiHardWidget> {
               },
               child: Text("Check Answers")),
           Text("Correct Answers = $points", style: TextStyle(fontSize: 30)),
+          Text("Finish Time = $finTime", style: TextStyle(fontSize: 30)),
         ],
       )),
     );
