@@ -117,7 +117,7 @@ class ScoreboardPage extends StatelessWidget {
                                             builder: (context) =>
                                                 SubtractScore()));
                                   },
-                                  child: Text("Subtreaction Scoreboard")),
+                                  child: Text("Subtraction Scoreboard")),
                             ),
                           ],
                         ),
@@ -299,14 +299,11 @@ class MultiScore extends StatelessWidget {
         backgroundColor: Colors.deepOrange,
       ),
       body: Container(
-        child: RaisedButton(
-          color: Colors.yellow,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-        alignment: Alignment.bottomRight,
+          child: Column(
+              children: [
+                Text(""), //SubtractMediumScoreList
+              ]
+          )
       ),
     );
   }
