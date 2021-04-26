@@ -269,7 +269,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -280,7 +280,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -291,7 +291,7 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -418,7 +418,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -429,7 +429,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -440,7 +440,7 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -567,7 +567,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -578,7 +578,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -589,7 +589,7 @@ class _AddHardWidgetState extends State<AddHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {

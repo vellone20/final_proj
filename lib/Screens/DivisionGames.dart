@@ -265,7 +265,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -276,7 +276,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -287,7 +287,7 @@ class _DivideEasyState extends State<DivideEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -420,7 +420,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -431,7 +431,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -442,7 +442,7 @@ class _DivideMediumState extends State<DivideMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -575,7 +575,7 @@ class _DivideHardState extends State<DivideHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -586,7 +586,7 @@ class _DivideHardState extends State<DivideHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -597,7 +597,7 @@ class _DivideHardState extends State<DivideHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {

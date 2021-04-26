@@ -32,6 +32,10 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  firebase_core: ^1.0.4
+  firebase_messaging: ^9.1.2
+  cloud_firestore: ^1.0.6
+  firebase_database: ^6.1.2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -50,6 +54,8 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - images/
+    - android/app/build.gradle
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

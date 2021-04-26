@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/services.dart';
 
@@ -205,7 +207,11 @@ class SubtractEasyWidget extends StatefulWidget {
 }
 
 class _SubtractEasyState extends State<SubtractEasyWidget> {
+
+
+
   static const SubtractEasyScoreList = [];
+
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -269,7 +275,7 @@ class _SubtractEasyState extends State<SubtractEasyWidget> {
                   style: TextStyle(fontSize: 30)),
               Text(""),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller1,
                   onChanged: (value) {
                     setState(() {
@@ -280,7 +286,7 @@ class _SubtractEasyState extends State<SubtractEasyWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 1 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller2,
                   onChanged: (value) {
                     setState(() {
@@ -291,7 +297,7 @@ class _SubtractEasyState extends State<SubtractEasyWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 2 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller3,
                   onChanged: (value) {
                     setState(() {
@@ -315,6 +321,15 @@ class _SubtractEasyState extends State<SubtractEasyWidget> {
                             points++;
                             if (userInput3 == ans3) {
                               points++;
+                              SubtractEasyScoreList.add(finTime);
+                              for (int i = 0; i < SubtractEasyScoreList.length ; i++)
+                                {
+                                  print (i);
+                                }
+                              // void getEasy(){
+                              //   DatabaseReference _subtractEasy = FirebaseDatabase.instance.reference().child("Times");
+                              //   _subtractEasy.set('Times ${SubtractEasyScoreList[0]}');
+                              // }
                             }
                           } else if (userInput3 == ans3) {
                             points++;
@@ -418,7 +433,7 @@ class _SubtractMediumState extends State<SubtractMediumWidget> {
                   style: TextStyle(fontSize: 30)),
               Text(""),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller1,
                   onChanged: (value) {
                     setState(() {
@@ -429,7 +444,7 @@ class _SubtractMediumState extends State<SubtractMediumWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 1 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller2,
                   onChanged: (value) {
                     setState(() {
@@ -440,7 +455,7 @@ class _SubtractMediumState extends State<SubtractMediumWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 2 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller3,
                   onChanged: (value) {
                     setState(() {
@@ -567,7 +582,7 @@ class _SubtractHardState extends State<SubtractHardWidget> {
                   style: TextStyle(fontSize: 30)),
               Text(""),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller1,
                   onChanged: (value) {
                     setState(() {
@@ -578,7 +593,7 @@ class _SubtractHardState extends State<SubtractHardWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 1 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller2,
                   onChanged: (value) {
                     setState(() {
@@ -589,7 +604,7 @@ class _SubtractHardState extends State<SubtractHardWidget> {
                       border: OutlineInputBorder(),
                       labelText: 'Question 2 Answer')),
               TextFormField(
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+                  keyboardType: TextInputType.number,
                   controller: Controller3,
                   onChanged: (value) {
                     setState(() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+
 
 class ScoreboardPage extends StatelessWidget {
   @override
@@ -97,7 +97,7 @@ class ScoreboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Image(
-                          image: AssetImage("images/addition.png"),
+                          image: AssetImage("images/minus.png"),
                           height: 80,
                           width: 80),
                       SizedBox(width: 30),
@@ -151,7 +151,7 @@ class ScoreboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Image(
-                          image: AssetImage("images/addition.png"),
+                          image: AssetImage("images/multi.png"),
                           height: 80,
                           width: 80),
                       SizedBox(width: 30),
@@ -205,7 +205,7 @@ class ScoreboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Image(
-                          image: AssetImage("images/addition.png"),
+                          image: AssetImage("images/division.png"),
                           height: 80,
                           width: 80),
                       SizedBox(width: 30),
@@ -251,14 +251,7 @@ class AddScore extends StatelessWidget {
         backgroundColor: Colors.deepOrange,
       ),
       body: Container(
-        child: RaisedButton(
-          color: Colors.yellow,
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-        alignment: Alignment.bottomRight,
+        child: Text(''),
       ),
     );
   }

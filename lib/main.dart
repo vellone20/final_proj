@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 import 'Screens/AdditionGames.dart';
 import 'Screens/ChatPage.dart';
@@ -8,14 +9,27 @@ import 'Screens/MultiplicationGames.dart';
 import 'Screens/ScoreboardPage.dart';
 import 'Screens/SubtractionGames.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MaterialApp(
     title: 'Navigation Basics',
     home: MainPage(),
+    // home: FutureBuilder(
+    //     future: _fbApp,
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasError)
+    //       {print ("Error"); return Text ("Error");}
+    //       else if (snapshot.hasData)
+    //       {return MainPage();}
+    //       else {return Center(child: CircularProgressIndicator());}
+    //     }
+    // ),
   ));
 }
 
 class MainPage extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

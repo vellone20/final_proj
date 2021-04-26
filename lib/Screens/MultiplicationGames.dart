@@ -266,7 +266,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -277,7 +277,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -288,7 +288,7 @@ class _MultiEasyState extends State<MultiEasyWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -415,7 +415,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -426,7 +426,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -437,7 +437,7 @@ class _MultiMediumState extends State<MultiMediumWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
@@ -564,7 +564,7 @@ class _MultiHardState extends State<MultiHardWidget> {
               style: TextStyle(fontSize: 30)),
           Text(""),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller1,
               onChanged: (value) {
                 setState(() {
@@ -575,7 +575,7 @@ class _MultiHardState extends State<MultiHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 1 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller2,
               onChanged: (value) {
                 setState(() {
@@ -586,7 +586,7 @@ class _MultiHardState extends State<MultiHardWidget> {
                   border: OutlineInputBorder(),
                   labelText: 'Question 2 Answer')),
           TextFormField(
-              inputFormatters: [FilteringTextInputFormatter.digitsOnly ],
+              keyboardType: TextInputType.number,
               controller: Controller3,
               onChanged: (value) {
                 setState(() {
