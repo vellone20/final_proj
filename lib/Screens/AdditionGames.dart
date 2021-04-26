@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/services.dart';
 
@@ -205,7 +206,7 @@ class AddEasyWidget extends StatefulWidget {
 }
 
 class _AddEasyWidgetState extends State<AddEasyWidget> {
-  static const AddEasyScoreList = [];
+  static var AddEasyScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -315,6 +316,13 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          AddEasyScoreList.add(finTime);
+                          for (int i = 0; i < AddEasyScoreList.length ; i++)
+                          {
+                            DatabaseReference _addEasy = FirebaseDatabase.instance.reference().child("Times");
+                            _addEasy.set("Time for easy addition attempt ${i+1} is ${AddEasyScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${AddEasyScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;
@@ -354,7 +362,7 @@ class AddMediumWidget extends StatefulWidget {
 }
 
 class _AddMediumWidgetState extends State<AddMediumWidget> {
-  static const AddMediumScoreList = [];
+  static var AddMediumScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -464,6 +472,13 @@ class _AddMediumWidgetState extends State<AddMediumWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          AddMediumScoreList.add(finTime);
+                          for (int i = 0; i < AddMediumScoreList.length ; i++)
+                          {
+                            DatabaseReference _addMedium = FirebaseDatabase.instance.reference().child("Times");
+                            _addMedium.set("Time for medium addition attempt ${i+1} is ${AddMediumScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${AddMediumScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;
@@ -503,7 +518,7 @@ class AddHardWidget extends StatefulWidget {
 }
 
 class _AddHardWidgetState extends State<AddHardWidget> {
-  static const AddHardScoreList = [];
+  static var AddHardScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -613,6 +628,13 @@ class _AddHardWidgetState extends State<AddHardWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          AddHardScoreList.add(finTime);
+                          for (int i = 0; i < AddHardScoreList.length ; i++)
+                          {
+                            DatabaseReference _addHard = FirebaseDatabase.instance.reference().child("Times");
+                            _addHard.set("Time for hard addition attempt ${i+1} is ${AddHardScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${AddHardScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;

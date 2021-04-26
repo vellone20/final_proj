@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/services.dart';
-
 
 class SubtractionPage extends StatelessWidget {
   @override
@@ -207,11 +205,7 @@ class SubtractEasyWidget extends StatefulWidget {
 }
 
 class _SubtractEasyState extends State<SubtractEasyWidget> {
-
-
-
-  static const SubtractEasyScoreList = [];
-
+  static var SubtractEasyScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -324,12 +318,10 @@ class _SubtractEasyState extends State<SubtractEasyWidget> {
                               SubtractEasyScoreList.add(finTime);
                               for (int i = 0; i < SubtractEasyScoreList.length ; i++)
                                 {
-                                  print (i);
+                                  DatabaseReference _subtractEasy = FirebaseDatabase.instance.reference().child("Times");
+                                  _subtractEasy.set("Time for easy subtraction attempt ${i+1} is ${SubtractEasyScoreList[i]}");
+                                  print ("Time for attempt ${i+1} is ${SubtractEasyScoreList[i]}");
                                 }
-                              // void getEasy(){
-                              //   DatabaseReference _subtractEasy = FirebaseDatabase.instance.reference().child("Times");
-                              //   _subtractEasy.set('Times ${SubtractEasyScoreList[0]}');
-                              // }
                             }
                           } else if (userInput3 == ans3) {
                             points++;
@@ -369,7 +361,7 @@ class SubtractMediumWidget extends StatefulWidget {
 }
 
 class _SubtractMediumState extends State<SubtractMediumWidget> {
-  static const SubtractMediumScoreList = [];
+  static var SubtractMediumScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -479,6 +471,13 @@ class _SubtractMediumState extends State<SubtractMediumWidget> {
                             points++;
                             if (userInput3 == ans3) {
                               points++;
+                              SubtractMediumScoreList.add(finTime);
+                              for (int i = 0; i < SubtractMediumScoreList.length ; i++)
+                              {
+                                DatabaseReference _subtractMedium = FirebaseDatabase.instance.reference().child("Times");
+                                _subtractMedium.set("Time for medium subtraction attempt ${i+1} is ${SubtractMediumScoreList[i]}");
+                                print ("Time for attempt ${i+1} is ${SubtractMediumScoreList[i]}");
+                              }
                             }
                           } else if (userInput3 == ans3) {
                             points++;
@@ -518,7 +517,7 @@ class SubtractHardWidget extends StatefulWidget {
 }
 
 class _SubtractHardState extends State<SubtractHardWidget> {
-  static const SubtractHardScoreList = [];
+  static var SubtractHardScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -628,6 +627,13 @@ class _SubtractHardState extends State<SubtractHardWidget> {
                             points++;
                             if (userInput3 == ans3) {
                               points++;
+                              SubtractHardScoreList.add(finTime);
+                              for (int i = 0; i < SubtractHardScoreList.length ; i++)
+                              {
+                                DatabaseReference _subtractHard = FirebaseDatabase.instance.reference().child("Times");
+                                _subtractHard.set("Time for hard subtraction attempt ${i+1} is ${SubtractHardScoreList[i]}");
+                                print ("Time for attempt ${i+1} is ${SubtractHardScoreList[i]}");
+                              }
                             }
                           } else if (userInput3 == ans3) {
                             points++;

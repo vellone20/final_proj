@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/services.dart';
 
@@ -202,7 +203,7 @@ class MultiEasyWidget extends StatefulWidget {
 }
 
 class _MultiEasyState extends State<MultiEasyWidget> {
-  //static const MultiEasyScoreList = [];
+  static var MultiEasyScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -312,6 +313,13 @@ class _MultiEasyState extends State<MultiEasyWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          MultiEasyScoreList.add(finTime);
+                          for (int i = 0; i < MultiEasyScoreList.length ; i++)
+                          {
+                            DatabaseReference _multiEasy = FirebaseDatabase.instance.reference().child("Times");
+                            _multiEasy.set("Time for easy multiplication attempt ${i+1} is ${MultiEasyScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${MultiEasyScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;
@@ -351,7 +359,7 @@ class MultiMediumWidget extends StatefulWidget {
 }
 
 class _MultiMediumState extends State<MultiMediumWidget> {
-  //static const MultiMediumScoreList = [];
+  static var MultiMediumScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -461,6 +469,13 @@ class _MultiMediumState extends State<MultiMediumWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          MultiMediumScoreList.add(finTime);
+                          for (int i = 0; i < MultiMediumScoreList.length ; i++)
+                          {
+                            DatabaseReference _multiMedium = FirebaseDatabase.instance.reference().child("Times");
+                            _multiMedium.set("Time for medium multiplication attempt ${i+1} is ${MultiMediumScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${MultiMediumScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;
@@ -500,7 +515,7 @@ class MultiHardWidget extends StatefulWidget {
 }
 
 class _MultiHardState extends State<MultiHardWidget> {
-  static const MultiHardScoreList = [];
+  static var MultiHardScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -610,6 +625,13 @@ class _MultiHardState extends State<MultiHardWidget> {
                         points++;
                         if (userInput3 == ans3) {
                           points++;
+                          MultiHardScoreList.add(finTime);
+                          for (int i = 0; i < MultiHardScoreList.length ; i++)
+                          {
+                            DatabaseReference _multiHard = FirebaseDatabase.instance.reference().child("Times");
+                            _multiHard.set("Time for hard multiplication  attempt ${i+1} is ${MultiHardScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${MultiHardScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 == ans3) {
                         points++;

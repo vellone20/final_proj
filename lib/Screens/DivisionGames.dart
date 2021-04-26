@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:firebase_database/firebase_database.dart';
 
 import 'package:flutter/services.dart';
 
@@ -204,7 +205,7 @@ class DivideEasyWidget extends StatefulWidget {
 }
 
 class _DivideEasyState extends State<DivideEasyWidget> {
-  static const DivisionEasyScoreList = [];
+  static var DivisionEasyScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -311,6 +312,13 @@ class _DivideEasyState extends State<DivideEasyWidget> {
                         points++;
                         if (userInput3 + '.0' == ans3) {
                           points++;
+                          DivisionEasyScoreList.add(finTime);
+                          for (int i = 0; i < DivisionEasyScoreList.length ; i++)
+                          {
+                            DatabaseReference _divideEasy = FirebaseDatabase.instance.reference().child("Times");
+                            _divideEasy.set("Time for easy division attempt ${i+1} is ${DivisionEasyScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${DivisionEasyScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 + '.0' == ans3) {
                         points++;
@@ -350,7 +358,7 @@ class DivideMediumWidget extends StatefulWidget {
 }
 
 class _DivideMediumState extends State<DivideMediumWidget> {
-  static const DivisionMediumScoreList = [];
+  static var DivisionMediumScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -466,6 +474,13 @@ class _DivideMediumState extends State<DivideMediumWidget> {
                         points++;
                         if (userInput3 + '.0' == ans3) {
                           points++;
+                          DivisionMediumScoreList.add(finTime);
+                          for (int i = 0; i < DivisionMediumScoreList.length ; i++)
+                          {
+                            DatabaseReference _divideMedium = FirebaseDatabase.instance.reference().child("Times");
+                            _divideMedium.set("Time for medium division attempt ${i+1} is ${DivisionMediumScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${DivisionMediumScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 + '.0' == ans3) {
                         points++;
@@ -505,7 +520,7 @@ class DivideHardWidget extends StatefulWidget {
 }
 
 class _DivideHardState extends State<DivideHardWidget> {
-  static const DivisionHardScoreList = [];
+  static var DivisionHardScoreList = [];
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -621,6 +636,13 @@ class _DivideHardState extends State<DivideHardWidget> {
                         points++;
                         if (userInput3 + '.0' == ans3) {
                           points++;
+                          DivisionHardScoreList.add(finTime);
+                          for (int i = 0; i < DivisionHardScoreList.length ; i++)
+                          {
+                            DatabaseReference _divideHard = FirebaseDatabase.instance.reference().child("Times");
+                            _divideHard.set("Time for hard division attempt ${i+1} is ${DivisionHardScoreList[i]}");
+                            print ("Time for attempt ${i+1} is ${DivisionHardScoreList[i]}");
+                          }
                         }
                       } else if (userInput3 + '.0' == ans3) {
                         points++;
