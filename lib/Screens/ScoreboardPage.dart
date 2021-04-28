@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_database/firebase_database.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ScoreboardPage extends StatelessWidget {
   @override
@@ -242,7 +243,22 @@ class ScoreboardPage extends StatelessWidget {
 
 class AddScore extends StatelessWidget {
   // show for all difficulties
+  static var EasyScoreList = [];
+  static var MediumScoreList = [];
+  static var HardScoreList = [];
+
   @override
+
+  // DatabaseReference db = FirebaseDatabase.instance.reference().child("Times");
+  // db.once().then((DataSnapshot snapshot){
+  // Map<dynamic, dynamic> values = snapshot.value;
+  // values.forEach((key,values) {
+  // print(values["Time for attempt ${i+1} is ${AddEasyScoreList[i]}"]);
+  // });
+  // });
+
+
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white70,
@@ -251,10 +267,26 @@ class AddScore extends StatelessWidget {
         backgroundColor: Colors.deepOrange,
       ),
       body: Container(
-        child: Text(''),
+          child: RaisedButton(
+              onPressed: () {
+                getSavedAddEasy();
+              }
+              ),
       ),
     );
   }
+}
+
+void getSavedAddEasy() async
+{
+  //attempting offline saving
+  var AddEasyScoreList = [];
+  final prefs = await SharedPreferences.getInstance();
+  // Try reading data from the counter key. If it doesn't exist, return 0.
+  final finTime = prefs.getInt('finTime') ?? 0;
+  AddEasyScoreList.add(finTime);
+  Text('${AddEasyScoreList[0]}');
+  print ("${AddEasyScoreList[0]}");
 }
 
 class SubtractScore extends StatelessWidget {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/services.dart';
 
@@ -207,6 +208,8 @@ class AddEasyWidget extends StatefulWidget {
 
 class _AddEasyWidgetState extends State<AddEasyWidget> {
   static var AddEasyScoreList = [];
+
+
   final Controller1 = TextEditingController();
   String userInput1 = '?';
   final Controller2 = TextEditingController();
@@ -319,10 +322,12 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
                           AddEasyScoreList.add(finTime);
                           for (int i = 0; i < AddEasyScoreList.length ; i++)
                           {
+                            //sends time to web server for cloud computing
                             DatabaseReference _addEasy = FirebaseDatabase.instance.reference().child("Times");
                             _addEasy.set("Time for easy addition attempt ${i+1} is ${AddEasyScoreList[i]}");
                             print ("Time for attempt ${i+1} is ${AddEasyScoreList[i]}");
                           }
+                          saveAddEasy(finTime);
                         }
                       } else if (userInput3 == ans3) {
                         points++;
@@ -345,6 +350,13 @@ class _AddEasyWidgetState extends State<AddEasyWidget> {
       )),
     );
   }
+}
+
+void saveAddEasy(finTime) async {
+  //attempting offline saving
+  final prefs = await SharedPreferences.getInstance();
+  prefs.setInt('finTime', finTime);
+  print ("$finTime");
 }
 
 class AddMedium extends StatelessWidget {
