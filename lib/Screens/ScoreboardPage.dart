@@ -287,6 +287,20 @@ void getSavedAddEasy() async
   AddEasyScoreList.add(finTime);
   Text('${AddEasyScoreList[0]}');
   print ("${AddEasyScoreList[0]}");
+
+  //attempting to get info inside of database
+  // db = FirebaseDatabase.instance.reference().child("Users");
+  // db.once().then((DataSnapshot snapshot){
+  //   Map<dynamic, dynamic> values = snapshot.value;
+  //   values.forEach((key,values) {
+  //     print(values["Email"]);
+  //   });
+  // });
+  //
+  // Map<dynamic, dynamic> values = needsSnapshot.data.value;
+  // values.forEach((key, values) {
+  //   needs.add(Need.fromSnapshot(values));
+  // });
 }
 
 class SubtractScore extends StatelessWidget {
